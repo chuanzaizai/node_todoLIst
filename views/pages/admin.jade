@@ -1,0 +1,41 @@
+extends ../layout
+block content
+	.container
+		.row
+			form.form-horizontal(method="post", enctype="multipart/form-data", action="/admin/movie/add_update")
+				//- 新建两个隐藏域,用于保存数据操作时需要的值
+				input(type="hidden", name="_id", value="#{movie._id}")
+				input(type="hidden", name="posterKey", value="#{movie.poster}")
+				.from-group
+					label.col-md-3.control-label(for="inputTitle") 电影名字
+					.col-md-7
+						input#inputTitle.form-control(type="text", name="title", value="#{movie.title}")
+				.from-group
+					label.col-md-3.control-label(for="inputDoctor") 导演
+					.col-md-7
+						input#inputDoctor.form-control(type="text", name="doctor", value="#{movie.doctor}")
+				.from-group
+					label.col-md-3.control-label(for="inputCountry") 国家
+					.col-md-7
+						input#inputCountry.form-control(type="text", name="country", value="#{movie.country}")
+				.from-group
+					label.col-md-3.control-label(for="inputLanguage") 语言
+					.col-md-7
+						input#inputLanguage.form-control(type="text", name="language", value="#{movie.language}")
+				.from-group
+					label.col-md-3.control-label(for="inputTime") 上映时间
+					.col-md-7
+						input#inputTime.form-control(type="text", name="time", value="#{movie.time}")
+				.from-group
+					label.col-md-3.control-label(for="inputPoster") 海报图片
+					.col-md-7
+						input#inputPoster.form-control(type="file", name="poster", value="#{movie.poster}")
+				.from-group
+					label.col-md-3.control-label(for="inputSummary") 简介
+					.col-md-7
+						textarea#inputSummary.form-control(type="text", name="summary") #{movie.summary}
+				.from-group
+					button.col-md-offset-5.col-md-2.btn.btn-success(type="submit") 录入
+
+
+
